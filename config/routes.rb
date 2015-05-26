@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   get 'sign-in', to: 'sessions#new'
   post 'sign-in', to: 'sessions#create'
 
-  resources :appointments, only: [:index]
+  resources :appointments, only: [:index, :create, :show, :update]
+
+  resources :user do
+    resources :appointments, only: [:new, :edit]
+  end
 
 end

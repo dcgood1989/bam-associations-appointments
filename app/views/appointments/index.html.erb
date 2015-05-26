@@ -1,0 +1,14 @@
+
+
+<%= link_to "New Appointment", new_user_appointment_path(@user) %>
+<%= "Upcoming Appointments for #{@user.username}: #{@user.appointments.count}" %>
+
+
+
+<%= "Doctors Assigned to #{@user.username}: #{@user.doctors.distinct.count} "  %>
+
+
+
+<% @user.appointments.each do |appointment| %>
+<%= link_to "Edit", edit_user_appointment_path(@user, appointment) %>
+<% end %>
